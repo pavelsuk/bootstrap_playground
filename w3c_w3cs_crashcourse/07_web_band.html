@@ -18,12 +18,34 @@
 <!-- Start Content -->
 <div id="home" class="w3-container-fluid w3-black">
 
-  <!-- Slides -->
-  <img class="slides" src="img_la.jpg" width="100%">
-  <img class="slides" src="img_ny.jpg" width="100%">
-  <img class="slides" src="img_ch.jpg" width="100%">
+  <div class="w3-content w3-display-container">
+
+    <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+    <!-- Slides -->
+    <img class="slides" src="img_la.jpg" width="100%">
+    <img class="slides" src="img_ny.jpg" width="100%">
+    <img class="slides" src="img_ch.jpg" width="100%">
+  </div>
   <script>
-  w3.slideshow(".slides", 2500);
+  // w3.slideshow(".slides", 2500);
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("slides");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex-1].style.display = "block";  
+}
   </script>
 
   <!-- Members -->
